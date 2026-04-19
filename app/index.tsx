@@ -1,21 +1,21 @@
-import { useState, useRef } from 'react'
-import {
-  View,
-  Text,
-  FlatList,
-  Pressable,
-  Modal,
-  TextInput,
-  StyleSheet,
-  ActivityIndicator,
-  KeyboardAvoidingView,
-  Platform,
-} from 'react-native'
-import { Stack, useRouter } from 'expo-router'
-import { Ionicons } from '@expo/vector-icons'
-import { useTodoStorage } from '@/hooks/useTodoStorage'
 import { ListCard } from '@/components/ListCard'
 import { Colors, Radius, Spacing } from '@/constants/theme'
+import { useTodoStorage } from '@/hooks/useTodoStorage'
+import { Ionicons } from '@expo/vector-icons'
+import { Stack, useRouter } from 'expo-router'
+import { useRef, useState } from 'react'
+import {
+  ActivityIndicator,
+  FlatList,
+  KeyboardAvoidingView,
+  Modal,
+  Platform,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native'
 
 export default function HomeScreen() {
   const router = useRouter()
@@ -127,8 +127,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   addBtn: {
-    padding: 4,
-    marginRight: 4,
+    padding: 4
   },
   list: {
     padding: Spacing.base,
