@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
   headerBtnIcon: {
     position: 'absolute',
     top: 0,
-    left: 7
+    left: 8
   },
   dragHandle: {
     paddingRight: 4,
