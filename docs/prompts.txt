@@ -1,0 +1,9 @@
+
+1.
+
+/init
+
+2.
+
+Create a "todo list" app. It should support multiple named todo lists with full CRUD: create/rename lists, add/edit/delete todo items, mark items done (strikethrough), drag-and-drop reordering, and local storage persistence. The UI should follow the design system defined in `DESIGN.md`.
+
