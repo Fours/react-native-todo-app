@@ -1,21 +1,21 @@
-import { useState, useRef } from 'react'
+import { DraggableList } from '@/components/DraggableList'
+import { ITEM_HEIGHT, TodoItem } from '@/components/TodoItem'
+import { Colors, Radius, Spacing } from '@/constants/theme'
+import type { TodoItem as TodoItemType } from '@/hooks/useTodoStorage'
+import { useTodoStorage } from '@/hooks/useTodoStorage'
+import { Ionicons } from '@expo/vector-icons'
+import { Stack, useLocalSearchParams, useRouter } from 'expo-router'
+import { useRef, useState } from 'react'
 import {
-  View,
-  Text,
-  Pressable,
-  TextInput,
-  StyleSheet,
+  Alert,
   KeyboardAvoidingView,
   Platform,
-  Alert,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
 } from 'react-native'
-import { Stack, useLocalSearchParams, useRouter } from 'expo-router'
-import { Ionicons } from '@expo/vector-icons'
-import { useTodoStorage } from '@/hooks/useTodoStorage'
-import { DraggableList } from '@/components/DraggableList'
-import { TodoItem, ITEM_HEIGHT } from '@/components/TodoItem'
-import type { TodoItem as TodoItemType } from '@/hooks/useTodoStorage'
-import { Colors, Radius, Spacing } from '@/constants/theme'
 
 export default function ListScreen() {
   const { id } = useLocalSearchParams<{ id: string }>()
@@ -116,7 +116,7 @@ export default function ListScreen() {
           headerTitle: () => headerTitle,
           headerRight: () => (
             <Pressable onPress={handleDeleteList} hitSlop={8} style={styles.headerBtn}>
-              <Ionicons name="trash-outline" size={20} color={Colors.brand} />
+              <Ionicons name="trash-outline" size={20} color={Colors.brand} style={styles.headerBtnIcon} />
             </Pressable>
           ),
         }}
@@ -195,8 +195,14 @@ const styles = StyleSheet.create({
     padding: 0,
   },
   headerBtn: {
-    padding: 4,
-    marginRight: 4,
+    position: 'relative',
+    width: 20,
+    height: 20
+  },
+  headerBtnIcon: {
+    position: 'absolute',
+    top: 0,
+    left: 7
   },
   dragHandle: {
     paddingRight: 4,
